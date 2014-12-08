@@ -1,0 +1,25 @@
+import random,time,mcpi.minecraft as minecraft #renames time,mcpi.minecraft to minecraft
+mc = minecraft.Minecraft.create() #opens connection to open minecraft game
+x = random.randint(-127.7,127.7)
+y = random.randint(-127.7,127.7)
+z = random.randint(-127.7,127.7)
+
+while True:
+	time.sleep(2) 
+	mc.postToChat("Hello There")
+	time.sleep(1)
+	mc.postToChat("Your Going To Teleport in")
+	time.sleep(1)
+	mc.postToChat("3")
+	time.sleep(1)
+	mc.postToChat("2")
+	time.sleep(1)
+	mc.postToChat("1")
+	time.sleep(1)
+	mc.player.setPos(x,y,z)
+	time.sleep(1)
+	mc.player.setPos(x,y,z)
+	time.sleep(1)
+	mc.player.setPos(x,y,z)
+	time.sleep(0.5)
+	mc.postToChat("Teleportation Complete")
