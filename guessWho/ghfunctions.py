@@ -68,7 +68,6 @@ def getCharProfile():
           elif gender == "girl" or "female" or "g" or "f":
                genderFine = True
           else:
-
                genderFine = False
 
      #Glasses
@@ -77,8 +76,6 @@ def getCharProfile():
           glasses = input("Are you wearing any glasses in the photo? ").lower()
           if glasses == "y" or "yes":
                glassesFine = True
-          else:
-               glassesFine = False
 
      #Facial Hair
      facialHairFine = False
@@ -89,4 +86,4 @@ def getCharProfile():
           else:
                facialHairFine = False
 
-return name,hairColour,eyeColour,hat,gender,glasses,facialHair
+     return name,hairColour,eyeColour,hat,gender,glasses,facialHair
