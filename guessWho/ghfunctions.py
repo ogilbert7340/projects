@@ -1,4 +1,4 @@
-import picamera, time
+import picamera, time, json
 
 def getPicture(name):
      try:
@@ -87,3 +87,12 @@ def getCharProfile():
                facialHairFine = False
 
      return name,hairColour,eyeColour,hat,gender,glasses,facialHair
+
+def saveProfile():
+     getCharProfile()
+     profile = [name,hairColour,eyeColour,hst,gender,glasses,facialHair]
+     profiles.append(profile)
+
+def loadProfile():
+     try:
+          with open
