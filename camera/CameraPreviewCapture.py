@@ -1,8 +1,8 @@
 import time, picamera
 
 with picamera.PiCamera() as camera:
-    camera.start_preview()
+    camera.start_preview() #starts camera preview
     time.sleep(2)
-    camera.capture(filename + ".jpg")
+    camera.capture(filename + ".jpg") #takes photo
     time.sleep(1)
-    camera.stop_preview
+    camera.stop_preview #stops camera preview
