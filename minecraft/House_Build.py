@@ -1,15 +1,18 @@
 import mcpi.minecraft as minecraft,time
 mc = minecraft.Minecraft.create()
 
+#setting variables forn player position
 pos = mc.player.getPos()
 x = pos.x
 y = pos.y
 z = pos.z
 
+#setting variables for block types
 brick = 45
 air = 0
 wood = 5
 
+#creates/builds house
 def buildhouse(x,y,z):
 	mc.setBlocks(x-2,y-1,z,x-12,y+5,z-8,brick)
 	mc.setBlocks(x-3,y,z-1,x-11,y+4,z-7,air)
