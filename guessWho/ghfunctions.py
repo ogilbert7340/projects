@@ -104,9 +104,18 @@ def getCharProfile():
 
 def saveProfile():
      getCharProfile()
-     profile = [name,hairColour,eyeColour,hst,gender,glasses,facialHair]
+     profile = [name,hairColour,eyeColour,gender,glasses,facialHair]
      profiles.append(profile)
+     with open("profiles.txt",mode="w") as p:
+          json.dump(profiles,p)
 
 def loadProfile():
      try:
-          with open
+          with open("profiles.txt",mode="r") as p:
+               profiles = json.load(p)
+               print(profiles)
+     except IOError:
+          print("profiles.txt not found. Creating a new profile")
+          global profiles
+          profiles=[]
+          saveProfile()
