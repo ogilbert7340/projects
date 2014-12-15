@@ -32,6 +32,8 @@ def getCharProfile():
           else:
                nameFine = True
 
+     getPicture(name)
+
      #Hair Colour
      hairColourFine = False
      while hairColourFine != True:
@@ -48,6 +50,10 @@ def getCharProfile():
           if hat == "y":
                hatFine = True
           elif hat == "yes":
+               hatFine = True
+          elif hat == "n":
+               hatFine = True
+          elif hat == "no":
                hatFine = True
           elif hat == "":
                hatFine = False
@@ -86,6 +92,10 @@ def getCharProfile():
                glassesFine = True
           elif glasses == "yes":
                glassesFine = True
+          elif glasses == "n":
+               glassesFine = True
+          elif glasses == "no":
+               glassesFine = True
           elif glasses == "":
                glassesFine = False
 
@@ -97,17 +107,24 @@ def getCharProfile():
                facialHairFine = True
           elif facialHair == "yes":
                facialHairFine = True
+          elif facialHair == "n":
+               facialHairFine = True
+          elif facialHair == "no":
+               facialHairFine = True
           elif facialHair == "":
                facialHairFine = False
 
-     return name,hairColour,eyeColour,hat,gender,glasses,facialHair
+     profileList = [name,hairColour,eyeColour,hat,gender,glasses,facialHair, filename]
+     
+     return profileList
 
 def saveProfile():
      getCharProfile()
-     profile = [name,hairColour,eyeColour,gender,glasses,facialHair]
      profiles.append(profile)
      with open("profiles.txt",mode="w") as p:
           json.dump(profiles,p)
+
+profiles=[]
 
 def loadProfile():
      try:
@@ -116,6 +133,4 @@ def loadProfile():
                print(profiles)
      except IOError:
           print("profiles.txt not found. Creating a new profile")
-          global profiles
-          profiles=[]
           saveProfile()
