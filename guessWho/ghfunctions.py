@@ -1,13 +1,13 @@
 import picamera, time, json
 
-def getPicture(name):
+def getPicture(filename):
      try:
           with picamera.PiCamera() as camera:
               check = False
               while check == False:
                   camera.start_preview()
                   time.sleep(2)
-                  camera.capture(name + ".jpg")
+                  camera.capture(filename + ".jpg")
                   time.sleep(1)
                   camera.stop_preview()
                   answer = input("Is this picture alright? ").lower()
@@ -17,9 +17,9 @@ def getPicture(name):
                      check = False
      except picamera.exc.PiCameraError:
           print("There is a problem with the pi camera, please check if its connected")
-          name=""
+          filename=""
 
-     return name
+     return filename
      
         
 def getCharProfile():
@@ -114,17 +114,18 @@ def getCharProfile():
           elif facialHair == "":
                facialHairFine = False
 
-     profileList = [name,hairColour,eyeColour,hat,gender,glasses,facialHair, filename]
+     profileList = [name,hairColour,eyeColour,hat,gender,glasses,facialHair]
      
      return profileList
 
-def saveProfile():
-     getCharProfile()
-     profiles.append(profile)
-     with open("profiles.txt",mode="w") as p:
-          json.dump(profiles,p)
 
-profiles=[]
+def saveProfile(x):
+     profile = getCharProfile()
+     print(x)
+     with open("profiles.txt",mode="w") as p:
+          json.dump(x,p)
+     return x
+
 
 def loadProfile():
      try:
@@ -132,5 +133,10 @@ def loadProfile():
                profiles = json.load(p)
                print(profiles)
      except IOError:
-          print("profiles.txt not found. Creating a new profile")
-          saveProfile()
+          print("profiles.txt not found. Creating new profile")
+          profiles = []
+     return profiles
+
+x = loadProfile()
+print(x)
+x = saveProfile(x)
