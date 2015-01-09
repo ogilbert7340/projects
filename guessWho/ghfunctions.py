@@ -1,6 +1,6 @@
 import picamera, time, json
 
-def getPicture(filename):
+def getPicture(filename=""):
      try:
           with picamera.PiCamera() as camera:
               check = False
@@ -121,10 +121,9 @@ def getCharProfile():
 
 def saveProfile(x):
      profile = getCharProfile()
-     print(x)
+     profiles.append(profile)
      with open("profiles.txt",mode="w") as p:
-          json.dump(x,p)
-     return x
+          json.dump(profiles,p)
 
 
 def loadProfile():
@@ -136,7 +135,3 @@ def loadProfile():
           print("profiles.txt not found. Creating new profile")
           profiles = []
      return profiles
-
-x = loadProfile()
-print(x)
-x = saveProfile(x)
