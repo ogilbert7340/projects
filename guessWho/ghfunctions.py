@@ -118,14 +118,6 @@ def getCharProfile():
      
      return profileList
 
-
-def saveProfile(x):
-     profile = getCharProfile()
-     profiles.append(profile)
-     with open("profiles.txt",mode="w") as p:
-          json.dump(profiles,p)
-
-
 def loadProfile():
      try:
           with open("profiles.txt",mode="r") as p:
@@ -135,3 +127,12 @@ def loadProfile():
           print("profiles.txt not found. Creating new profile")
           profiles = []
      return profiles
+
+
+def saveProfile(profiles):
+     profile = getCharProfile()
+     profiles.append(profile)
+     with open("profiles.txt",mode="w") as p:
+          json.dump(profiles,p)
+
+
