@@ -13,17 +13,17 @@ def bucketTippedSeconds(channel):
 def bucket_tipped(channel):
 	global rainCount
 	rainCount += 1
-	print (rainCount * 0.2794)
+	print(rainCount)
 
 def spin(channel):
 	global windCount
 	windCount += 1
-	print (windCount)
 
 def calcspeed():
-	speedCMps = ((9 * math.pi) * windCount / 5)
+	speedCMps = ((9 * math.pi) * windCount) / 5
 	global speedKMph
-	speedKMph = ((speedCMps * 100000) *3600)
+	speedKMph = (speedCMps * 100000) *3600
+	return speedKMph
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(rainPin, GPIO.IN, GPIO.PUD_UP)
